@@ -16,9 +16,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         GlobalScope.launch {
-            delay(5000L)
-            Log.d(TAG,"Hello from ${Thread.currentThread().name}")
+            delay(1000L)
+          val ans =  doNetworkCall()
+            Log.d(TAG,ans)
         }
-        Log.d(TAG,"Hello from ${Thread.currentThread().name}")
+    }
+
+    suspend fun doNetworkCall(): String {
+        delay(3000L)
+        return "This is the answer"
     }
 }
